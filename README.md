@@ -12,7 +12,8 @@ Transformar dados operacionais de um e-commerce em insights acionáveis sobre a 
 
 ```
 TechChallenge_1/
-├── data/                               # Pasta de dados (referência)
+├── data/
+│   └── desafio_nps_fase_1.csv              # Base de dados original
 ├── notebooks/
 │   ├── 01_entendimento_negocio.ipynb       # Análise conceitual e definição da target
 │   ├── 02_eda_analise_exploratoria.ipynb   # Análise exploratória dos dados
@@ -20,7 +21,6 @@ TechChallenge_1/
 ├── models/                             # Modelos treinados salvos
 ├── reports/
 │   └── figures/                        # Visualizações geradas pelos notebooks
-├── desafio_nps_fase_1.csv              # Base de dados original
 ├── requirements.txt                    # Dependências Python
 └── README.md
 ```
@@ -29,7 +29,7 @@ TechChallenge_1/
 
 ## Descrição da Base de Dados
 
-**Arquivo:** `desafio_nps_fase_1.csv`
+**Arquivo:** `data/desafio_nps_fase_1.csv`
 **Registros:** 2.500 pedidos
 **Fonte:** Dados históricos de pedidos, entregas e atendimento de e-commerce nacional, sem visibilidade se a amostra atinge o tamanho mínimo necessário para nível de confiança e cálculo da margem de erro.
 
@@ -62,6 +62,7 @@ TechChallenge_1/
 O projeto segue a estrutura CRISP-DM adaptada:
 
 1. **Entendimento do Negócio** (`01_entendimento_negocio.ipynb`)
+   - Pontos de atenção para todo o projeto
    - Análise conceitual do problema
    - Reflexão sobre impacto do NPS no negócio
    - Definição e justificativa da variável alvo
@@ -101,17 +102,17 @@ Execute os notebooks na ordem:
 
 ### 3. Dados
 
-O arquivo `desafio_nps_fase_1.csv` está na raiz do repositório. Os notebooks o referenciam como `'../desafio_nps_fase_1.csv'` — nenhuma configuração adicional é necessária.
+O arquivo `desafio_nps_fase_1.csv` está na pasta `data/`. Os notebooks o referenciam como `'../data/desafio_nps_fase_1.csv'` — nenhuma configuração adicional é necessária.
 
 ---
 
 ## Principais Insights
 
-- **Atraso na entrega** é o fator que mais derruba o NPS — clientes com 5+ dias de atraso têm NPS médio próximo de zero
-- **Contatos com atendimento** deterioram a satisfação — cada contato adicional reduz a nota média significativamente
-- **Reclamações** têm impacto direto e proporcional na nota NPS
-- **Clientes com mais tempo de relacionamento** tendem a ser mais tolerantes, porém com expectativas maiores
-- **Região Nordeste** apresenta menores NPS médios, sinalizando possíveis gargalos logísticos regionais
+- **Atraso na entrega** - é o fator que mais derruba o NPS, clientes com 5+ dias de atraso têm NPS médio próximo de zero
+- **Contatos com atendimento** - deterioram a satisfação, cada contato adicional reduz a nota média significativamente
+- **Reclamações** - têm impacto direto e proporcional na nota NPS
+- **Clientes com mais tempo de relacionamento** - tendem a ser mais tolerantes, porém com expectativas maiores
+- **Diferenças regionais no NPS são mínimas** - o problema é sistêmico e afeta todas as regiões igualmente
 
 ---
 
