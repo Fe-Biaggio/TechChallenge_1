@@ -132,6 +132,20 @@ O arquivo `simulacao_predicao.csv` contém 500 pedidos sintéticos sem NPS, gera
 
 ---
 
+## Artefatos do Modelo (`models/`)
+
+O notebook 03 gera três arquivos na pasta `models/` que são reutilizados nas predições:
+
+| Arquivo | Descrição | Usado em |
+|---------|-----------|----------|
+| `random_forest_nps.pkl` | Modelo Random Forest treinado — recebe as 18 features e retorna a probabilidade de o cliente ser Promotor | nb03 seção 11, nb04 |
+| `feature_columns.pkl` | Lista ordenada das 18 colunas de entrada — garante que novos dados sejam alinhados à mesma estrutura usada no treino, preenchendo dummies ausentes com `0` e reordenando as colunas | nb03 seção 11, nb04 |
+| `scaler_lr.pkl` | StandardScaler ajustado para a Regressão Logística (baseline) — necessário apenas se a LR for utilizada em produção, pois ela exige normalização das features | nb03 seção 10 (salvo como artefato complementar) |
+
+O `feature_columns.pkl` é essencial para qualquer predição: sem ele, o modelo pode receber as colunas em ordem errada e gerar resultados incorretos.
+
+---
+
 ## Tecnologias Utilizadas
 
 - Python 3.10+
