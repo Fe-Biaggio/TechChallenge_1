@@ -13,15 +13,18 @@ Transformar dados operacionais de um e-commerce em insights acionáveis sobre a 
 ```
 TechChallenge_1/
 ├── data/
-│   └── desafio_nps_fase_1.csv              # Base de dados original
+│   ├── desafio_nps_fase_1.csv              # Base de dados original
+│   ├── simulacao_predicao.csv              # 500 pedidos sintéticos sem NPS (entrada do notebook 04)
+│   └── simulacao_predicao.xlsx             # Resultado da predição: registros + prob_promotor + classificação
 ├── notebooks/
 │   ├── 01_entendimento_negocio.ipynb       # Análise conceitual e definição da target
 │   ├── 02_eda_analise_exploratoria.ipynb   # Análise exploratória dos dados
-│   └── 03_modelo_preditivo.ipynb           # Pipeline de modelo preditivo (opcional)
-├── models/                             # Modelos treinados salvos
+│   ├── 03_modelo_preditivo.ipynb           # Pipeline de modelo preditivo
+│   └── 04_simulacao_predicao.py            # Simulação de predição em lote com novos pedidos
+├── models/                                 # Artefatos do modelo treinado (pkl)
 ├── reports/
-│   └── figures/                        # Visualizações geradas pelos notebooks
-├── requirements.txt                    # Dependências Python
+│   └── figures/                            # Visualizações geradas pelos notebooks
+├── requirements.txt                        # Dependências Python
 └── README.md
 ```
 
@@ -76,8 +79,14 @@ O projeto segue a estrutura CRISP-DM adaptada:
 3. **Modelo Preditivo** (`03_modelo_preditivo.ipynb`) — *Desafio opcional*
    - Classificação binária: Promotor vs Não-Promotor
    - Pipeline completo: feature engineering, split, treino, avaliação
-   - Modelos: Regressão Logística (baseline) e Random Forest
+   - Modelos: Regressão Logística (baseline) e Random Forest (18 features, todas as 5 regiões)
    - Feature importance e interpretação de negócio
+   - Seção de uso em produção com função `prever_nps` e 3 cenários de exemplo
+
+4. **Simulação de Predição em Lote** (`04_simulacao_predicao.py`)
+   - Aplica o modelo treinado sobre 500 novos pedidos (`simulacao_predicao.csv`)
+   - Gera `simulacao_predicao.xlsx` com colunas `prob_promotor`, `classificacao` e `risco_detrator`
+   - Produz dois gráficos: distribuição de pedidos por faixa de probabilidade e pizza Promotor vs Não-Promotor
 
 ---
 
@@ -99,10 +108,17 @@ Execute os notebooks na ordem:
 1. `notebooks/01_entendimento_negocio.ipynb`
 2. `notebooks/02_eda_analise_exploratoria.ipynb`
 3. `notebooks/03_modelo_preditivo.ipynb`
+4. `notebooks/04_simulacao_predicao.py` (requer que o notebook 03 tenha sido executado para gerar os artefatos em `models/`)
+
+```bash
+python notebooks/04_simulacao_predicao.py
+```
 
 ### 3. Dados
 
 O arquivo `desafio_nps_fase_1.csv` está na pasta `data/`. Os notebooks o referenciam como `'../data/desafio_nps_fase_1.csv'` — nenhuma configuração adicional é necessária.
+
+O arquivo `simulacao_predicao.csv` contém 500 pedidos sintéticos sem NPS, gerado para demonstrar a predição em lote com o modelo treinado.
 
 ---
 
