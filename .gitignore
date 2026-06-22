@@ -1,0 +1,15 @@
+# Notebooks temporários (não subir no git)
+temp/
+
+# Checkpoints do Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+venv/
