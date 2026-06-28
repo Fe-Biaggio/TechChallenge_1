@@ -2,6 +2,17 @@
 
 **Pós-Tech FIAP | 1IAST | Fase 1**
 
+## Apresentação em Vídeo
+
+Os vídeos abaixo estão disponíveis na pasta `reports/presentation/` e devem ser assistidos nessa ordem:
+
+| # | Arquivo | Descrição |
+|---|---------|-----------|
+| 1 | `00_NPS_Pontos_de_Atencao.mp4` | Pontos de atenção que impactam os números e dados apresentados — assista antes da apresentação principal |
+| 2 | `01_NPS_Apresentacao.mp4` | Apresentação do projeto para gestão e stakeholders |
+
+---
+
 ## Objetivo do Projeto
 
 Transformar dados operacionais de um e-commerce em insights acionáveis sobre a satisfação dos clientes, medida pelo Net Promoter Score (NPS). O projeto busca dar visibilidade dos problemas encontrados no quesito dados e negócio, além de buscar responder com aquilo que foi fornecido: **quais fatores operacionais realmente influenciam o NPS e como a empresa pode agir de forma proativa antes da aplicação da pesquisa?**
