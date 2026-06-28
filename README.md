@@ -8,8 +8,8 @@ Os vídeos abaixo estão disponíveis na pasta `reports/presentation/` e devem s
 
 | # | Arquivo | Descrição |
 |---|---------|-----------|
-| 1 | `00_NPS_Pontos_de_Atencao.mp4` | Pontos de atenção que impactam os números e dados apresentados — Se possível, assista antes da apresentação principal |
-| 2 | `01_NPS_Apresentacao.mp4` | Apresentação do projeto para gestão e stakeholders - Limite 5 minutos |
+| 1 | [00_NPS_Pontos_de_Atencao.mp4](reports/presentation/00_NPS_Pontos_de_Atencao.mp4) | Pontos de atenção que impactam os números e dados apresentados — Se possível, assista antes da apresentação principal |
+| 2 | [01_NPS_Apresentacao.mp4](reports/presentation/01_NPS_Apresentacao.mp4) | Apresentação do projeto para gestão e stakeholders - Limite 5 minutos |
 
 ---
 
@@ -43,7 +43,7 @@ TechChallenge_1/
 
 ## Descrição da Base de Dados
 
-**Arquivo:** `data/desafio_nps_fase_1.csv`
+**Arquivo:** [`data/desafio_nps_fase_1.csv`](data/desafio_nps_fase_1.csv)
 **Registros:** 2.500 pedidos
 **Fonte:** Dados históricos de pedidos, entregas e atendimento de e-commerce nacional, sem visibilidade se a amostra atinge o tamanho mínimo necessário para nível de confiança e cálculo da margem de erro.
 
@@ -75,28 +75,28 @@ TechChallenge_1/
 
 O projeto segue a estrutura CRISP-DM adaptada:
 
-1. **Entendimento do Negócio** (`01_entendimento_negocio.ipynb`)
+1. **Entendimento do Negócio** ([`01_entendimento_negocio.ipynb`](notebooks/01_entendimento_negocio.ipynb))
    - Pontos de atenção para todo o projeto
    - Análise conceitual do problema
    - Reflexão sobre impacto do NPS no negócio
    - Definição e justificativa da variável alvo
 
-2. **Análise Exploratória dos Dados — EDA** (`02_eda_analise_exploratoria.ipynb`)
+2. **Análise Exploratória dos Dados — EDA** ([`02_eda_analise_exploratoria.ipynb`](notebooks/02_eda_analise_exploratoria.ipynb))
    - Visão geral e qualidade dos dados
    - Distribuição do NPS e classificação em Promotores / Neutros / Detratores
    - Análise de fatores logísticos, de atendimento e perfil do cliente
    - Identificação de pontos críticos e insights de negócio
 
-3. **Modelo Preditivo** (`03_modelo_preditivo.ipynb`) — *Desafio opcional*
+3. **Modelo Preditivo** ([`03_modelo_preditivo.ipynb`](notebooks/03_modelo_preditivo.ipynb)) — *Desafio opcional*
    - Classificação binária: Promotor vs Não-Promotor
    - Pipeline completo: feature engineering, split, treino, avaliação
    - Modelos: Regressão Logística (baseline) e Random Forest (18 features, todas as 5 regiões)
    - Feature importance e interpretação de negócio
    - Seção de uso em produção com função `prever_nps` e 3 cenários de exemplo
 
-4. **Simulação de Predição em Lote** (`04_simulacao_predicao.py`)
-   - Aplica o modelo treinado sobre 500 novos pedidos (`simulacao_predicao.csv`)
-   - Gera `simulacao_predicao.xlsx` com colunas `prob_promotor`, `classificacao` e `risco_detrator`
+4. **Simulação de Predição em Lote** ([`04_simulacao_predicao.py`](notebooks/04_simulacao_predicao.py))
+   - Aplica o modelo treinado sobre 500 novos pedidos ([`simulacao_predicao.csv`](data/simulacao_predicao.csv))
+   - Gera [`simulacao_predicao.xlsx`](data/simulacao_predicao.xlsx) com colunas `prob_promotor`, `classificacao` e `risco_detrator`
    - Produz dois gráficos: distribuição de pedidos por faixa de probabilidade e pizza Promotor vs Não-Promotor
 
 ---
@@ -116,10 +116,10 @@ jupyter lab
 ```
 
 Execute os notebooks na ordem:
-1. `notebooks/01_entendimento_negocio.ipynb`
-2. `notebooks/02_eda_analise_exploratoria.ipynb`
-3. `notebooks/03_modelo_preditivo.ipynb`
-4. `notebooks/04_simulacao_predicao.py` (requer que o notebook 03 tenha sido executado para gerar os artefatos em `models/`)
+1. [`notebooks/01_entendimento_negocio.ipynb`](notebooks/01_entendimento_negocio.ipynb)
+2. [`notebooks/02_eda_analise_exploratoria.ipynb`](notebooks/02_eda_analise_exploratoria.ipynb)
+3. [`notebooks/03_modelo_preditivo.ipynb`](notebooks/03_modelo_preditivo.ipynb)
+4. [`notebooks/04_simulacao_predicao.py`](notebooks/04_simulacao_predicao.py) (requer que o notebook 03 tenha sido executado para gerar os artefatos em `models/`)
 
 ```bash
 python notebooks/04_simulacao_predicao.py
@@ -127,9 +127,9 @@ python notebooks/04_simulacao_predicao.py
 
 ### 3. Dados
 
-O arquivo `desafio_nps_fase_1.csv` está na pasta `data/`. Os notebooks o referenciam como `'../data/desafio_nps_fase_1.csv'` — nenhuma configuração adicional é necessária.
+O arquivo [`desafio_nps_fase_1.csv`](data/desafio_nps_fase_1.csv) está na pasta `data/`. Os notebooks o referenciam como `'../data/desafio_nps_fase_1.csv'` — nenhuma configuração adicional é necessária.
 
-O arquivo `simulacao_predicao.csv` contém 500 pedidos sintéticos sem NPS, gerado para demonstrar a predição em lote com o modelo treinado.
+O arquivo [`simulacao_predicao.csv`](data/simulacao_predicao.csv) contém 500 pedidos sintéticos sem NPS, gerado para demonstrar a predição em lote com o modelo treinado.
 
 ---
 
@@ -149,9 +149,9 @@ O notebook 03 gera três arquivos na pasta `models/` que são reutilizados nas p
 
 | Arquivo | Descrição | Usado em |
 |---------|-----------|----------|
-| `random_forest_nps.pkl` | Modelo Random Forest treinado — recebe as 18 features e retorna a probabilidade de o cliente ser Promotor | nb03 seção 11, nb04 |
-| `feature_columns.pkl` | Lista ordenada das 18 colunas de entrada — garante que novos dados sejam alinhados à mesma estrutura usada no treino, preenchendo dummies ausentes com `0` e reordenando as colunas | nb03 seção 11, nb04 |
-| `scaler_lr.pkl` | StandardScaler ajustado para a Regressão Logística (baseline) — necessário apenas se a LR for utilizada em produção, pois ela exige normalização das features | nb03 seção 10 (salvo como artefato complementar) |
+| [`random_forest_nps.pkl`](models/random_forest_nps.pkl) | Modelo Random Forest treinado — recebe as 18 features e retorna a probabilidade de o cliente ser Promotor | nb03 seção 11, nb04 |
+| [`feature_columns.pkl`](models/feature_columns.pkl) | Lista ordenada das 18 colunas de entrada — garante que novos dados sejam alinhados à mesma estrutura usada no treino, preenchendo dummies ausentes com `0` e reordenando as colunas | nb03 seção 11, nb04 |
+| [`scaler_lr.pkl`](models/scaler_lr.pkl) | StandardScaler ajustado para a Regressão Logística (baseline) — necessário apenas se a LR for utilizada em produção, pois ela exige normalização das features | nb03 seção 10 (salvo como artefato complementar) |
 
 O `feature_columns.pkl` é essencial para qualquer predição: sem ele, o modelo pode receber as colunas em ordem errada e gerar resultados incorretos.
 
