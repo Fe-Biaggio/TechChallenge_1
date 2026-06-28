@@ -8,8 +8,8 @@ Os vídeos abaixo estão disponíveis na pasta `reports/presentation/` e devem s
 
 | # | Arquivo | Descrição |
 |---|---------|-----------|
-| 1 | `00_NPS_Pontos_de_Atencao.mp4` | Pontos de atenção que impactam os números e dados apresentados — assista antes da apresentação principal |
-| 2 | `01_NPS_Apresentacao.mp4` | Apresentação do projeto para gestão e stakeholders |
+| 1 | `00_NPS_Pontos_de_Atencao.mp4` | Pontos de atenção que impactam os números e dados apresentados — Se possível, assista antes da apresentação principal |
+| 2 | `01_NPS_Apresentacao.mp4` | Apresentação do projeto para gestão e stakeholders - Limite 5 minutos |
 
 ---
 
